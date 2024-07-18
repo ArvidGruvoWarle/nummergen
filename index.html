@@ -58,42 +58,19 @@
 
 	<script>
 		function myFunction() {
-			var amount = parseInt(document.getElementById("amount").value);
-			var i = 0;
-			var added1;
-			var added2;
-			var arr = [];
-
-			while (i < amount) {
-
-			added1 = rand;
-
-			var min = parseInt(document.getElementById("number1").value);
-			var max = parseInt(document.getElementById("number2").value);
-			var rand = Math.floor(Math.random() * (max - min + 1) + min);
-			var rand2 = (rand + min);
-
-			
-			added2 = added1 + rand;
-
-			
-
-			i++;
-			}
-
-			var arr = [];
-while(arr.length < amount){
+    var amount = parseInt(document.getElementById("amount").value);
     var min = parseInt(document.getElementById("number1").value);
-			var max = parseInt(document.getElementById("number2").value);
-			var rand = Math.floor(Math.random() * (max - min + 1) + min);
-			var rand2 = (rand + min);
-	if(arr.indexOf(rand) === -1) arr.push(rand +"<br>");
-	
+    var max = parseInt(document.getElementById("number2").value);
+    var uniqueNumbers = new Set();
+
+    while (uniqueNumbers.size < amount) {
+        var rand = Math.floor(Math.random() * (max - min + 1) + min);
+        uniqueNumbers.add(rand);
+    }
+
+    var arr = Array.from(uniqueNumbers).map(num => num + "<br>");
+    document.getElementById("Number1").innerHTML = arr.join('');
 }
-
-
-			document.getElementById("Number1").innerHTML = arr.join('');
-		}
 
 
 
